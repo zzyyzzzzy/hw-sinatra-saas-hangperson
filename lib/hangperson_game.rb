@@ -63,8 +63,9 @@ class HangpersonGame
   end
 
   def check_win_or_lose
-    change_rem = 7 - (@guesses.length + @wrong_guesses.length)
-    if (@guesses.length == @word.length) && (change_rem > 0)
+    change_rem = 7 - @wrong_guesses.length
+    to_display = self.word_with_guesses()
+    if (!to_display.include?("-")) && (change_rem > 0)
       return :win
     elsif change_rem > 0
       return :play
